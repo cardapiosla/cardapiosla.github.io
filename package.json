@@ -2,9 +2,11 @@
   "name": "cardapio-sla",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://hugueds.github.io/cardapio-sla/",
   "dependencies": {
     "@material-ui/core": "^1.5.1",
     "@material-ui/icons": "^2.0.3",
+    "gh-pages": "^1.2.0",
     "moment": "^2.22.2",
     "momentjs": "^2.0.0",
     "react": "^16.4.2",
@@ -16,6 +18,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }
