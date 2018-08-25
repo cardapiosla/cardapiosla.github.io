@@ -2,7 +2,7 @@
   "name": "cardapio-sla",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://hugueds.github.io/cardapio-sla/",
+  "homepage": "https://hugueds.github.io/cardapio-sla",
   "dependencies": {
     "@material-ui/core": "^1.5.1",
     "@material-ui/icons": "^2.0.3",
