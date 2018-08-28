@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import CardapioModel from '../models/CardapioModel';
-import ItemRow from './ItemRow';
+
 
 const objMap = [
     { 'header': 'ENTRADA', 'property': 'entrance' },

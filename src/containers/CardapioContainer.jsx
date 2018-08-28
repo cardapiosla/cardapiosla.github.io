@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import Moment from 'moment';
-import { Select, FormControl, FormHelperText, InputLabel, Input, MenuItem }
+import { Select, FormControl, FormHelperText, MenuItem }
     from '@material-ui/core';
 
 // import CardapioModel from '../models/CardapioModel';
@@ -12,7 +11,7 @@ class CardapioContainer extends Component {
 
     constructor() {
         super();
-        this.state = {cardapio: [], menu: {}, selectedDay: ''}
+        this.state = { cardapio: [], menu: {}, selectedDay: '' }
     }
 
     componentDidMount() {
@@ -23,37 +22,36 @@ class CardapioContainer extends Component {
                 loadingData: false
             });
             // this.updateDay(new Date().toISOString());
-        });    
+        });
     }
 
     handleChange = (e) => {
-        const menu = this.state.cardapio.find(x => x.dayReference == e.target.value).menu;
-        console.log(menu)
+        const menu = this.state.cardapio.find(x => x.dayReference === e.target.value).menu;
         this.setState({
-            selectedDay: e.target.value,       
+            selectedDay: e.target.value,
             menu: menu
         })
     }
 
     render() {
-        const { cardapio } = this.state;        
+        const { cardapio } = this.state;
         const dayList = cardapio.map(c => {
             return (
                 <MenuItem key={c._id} value={c.dayReference}>
-                    { Moment(c.dayReference).format('DD/MM/YY') }
-              </MenuItem>);
+                    {Moment(c.dayReference).format('DD/MM/YY')}
+                </MenuItem>);
         });
         return (
             <div style={styles.root}>
-            <FormControl style={styles.formControl}>                
-                <Select
-                    value={this.state.selectedDay}
-                    onChange={this.handleChange} >
-                    {dayList}
-                </Select>
-                <FormHelperText>Escolha um dia da Semana</FormHelperText>
-            </FormControl>
-            <MenuItems menu={this.state.menu} />
+                <FormControl style={styles.formControl}>
+                    <Select
+                        value={this.state.selectedDay}
+                        onChange={this.handleChange} >
+                        {dayList}
+                    </Select>
+                    <FormHelperText>Escolha um dia da Semana</FormHelperText>
+                </FormControl>
+                <MenuItems menu={this.state.menu} />
             </div>
         );
     }
@@ -70,7 +68,7 @@ function getCardapio(callback) {
 // }
 
 const styles = {
-    root: {        
+    root: {
         width: '100%'
     },
     formControl: {
