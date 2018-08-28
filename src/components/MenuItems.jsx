@@ -18,41 +18,41 @@ export default class Cardapio extends Component {
 
     render() {
         const { menu } = this.props;
-        const listItems = objMap.map((p, i) => (            
+        const listItems = objMap.map((p, i) => (
             <React.Fragment key={i}>
                 <div style={styles.menuHeader}>  {p.header}</div>
                 {
-                    menu[p.property] ? 
-                    menu[p.property].map((m,j) => <div style={styles.menuValue} key={j}>- {m}</div>) : null
-                }                
+                    menu[p.property]
+                        ? menu[p.property].map((m, j) => <div style={styles.menuValue} key={j}>- {m}</div>)
+                        : null
+                }
             </React.Fragment>
         ))
         return (
-            <React.Fragment >
+            <div style={styles.container}>
                 {listItems}
-            </React.Fragment>
+            </div>
         )
     }
 }
 
 const styles = {
-    container: {
-        display: 'flex',
-        'flex': 1,
-        'width': '100%',
-        'backgroundColor': '#ffe3a0',
-        marginBottom: '4%'
+    container: {                
+        'width': '100%',        
+        marginBottom: '6%'
     },
     menuHeader: {
         marginLeft: '5%',
-        fontSize: 13,
+        fontSize: 11,
         marginTop: '2%',
-        'fontWeight': 'bold',
-        'color': '#873d0c'
+        marginBottom: '1%',
+        fontWeight: 'bold',
+        color: '#873d0c'
     },
     menuValue: {
         marginLeft: '7.5%',
-        marginTop: '1%',
-        'color': '#0c3987'
+        marginTop: '0.5%',
+        color: '#0c3987',
+        fontSize: '0.77rem'
     }
 }

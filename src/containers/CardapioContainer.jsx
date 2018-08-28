@@ -5,24 +5,40 @@ import { Select, FormControl, FormHelperText, MenuItem }
 
 // import CardapioModel from '../models/CardapioModel';
 import MenuItems from '../components/MenuItems';
-
+import Footer from '../components/Footer';
 
 class CardapioContainer extends Component {
 
     constructor() {
         super();
-        this.state = { cardapio: [], menu: {}, selectedDay: '' }
+        this.state = { cardapio: [], menu: {}, selectedDay: '', loadingData: true, reloadTime: 0 };
     }
 
     componentDidMount() {
+        this.renderCardapio();
+    }
+
+    renderCardapio = () => {
         getCardapio((data) => {
-            data = data.sort((a, b) => new Date(a.dayReference) - new Date(b.dayReference));
+            data = data.sort((a, b) =>
+                new Date(a.dayReference) - new Date(b.dayReference)
+            );
             this.setState({
                 cardapio: data,
                 loadingData: false
             });
-            // this.updateDay(new Date().toISOString());
+            this.getToday();
         });
+    }
+
+    getToday = () => {
+        const today = Moment(new Date()).format('DD/MM/YY');
+        const selected = this.state.cardapio.find(x =>
+            Moment(x.dayReference).format('DD/MM/YY') === today);
+        this.setState({
+            selectedDay: selected.dayReference,
+            menu: selected.menu
+        })
     }
 
     handleChange = (e) => {
@@ -35,6 +51,7 @@ class CardapioContainer extends Component {
 
     render() {
         const { cardapio } = this.state;
+        const lastUpdate = cardapio[0] || '0';
         const dayList = cardapio.map(c => {
             return (
                 <MenuItem key={c._id} value={c.dayReference}>
@@ -42,7 +59,7 @@ class CardapioContainer extends Component {
                 </MenuItem>);
         });
         return (
-            <div style={styles.root}>
+            <div style={styles.root}>              
                 <FormControl style={styles.formControl}>
                     <Select
                         value={this.state.selectedDay}
@@ -52,6 +69,8 @@ class CardapioContainer extends Component {
                     <FormHelperText>Escolha um dia da Semana</FormHelperText>
                 </FormControl>
                 <MenuItems menu={this.state.menu} />
+                <Footer lastUpdate={Moment(lastUpdate.uploadedIn).format('DD/MM/YY')} />
+                {/* <Footer lastUpdate={Moment(cardapio[0].uploadedIn).format('DD/MM/YY')}/> */}
             </div>
         );
     }
@@ -60,8 +79,22 @@ class CardapioContainer extends Component {
 function getCardapio(callback) {
     fetch('https://api.mlab.com/api/1/databases/cardapiosla/collections/cardapio?apiKey=RaMXCGwuJgzDb0wApqf8szcbN36SncAL')
         .then(res => res.json())
-        .then(data => callback(data));
+        .then(data => callback(data))
+        .catch((err) => console.error(err));
 }
+
+
+
+// function handleError() {        
+//     const interval = setInterval(() => {
+//         this.state.reloadTime--;
+//     }, 1000)
+//     setTimeout(() => {
+//         clearInterval(interval);
+//         console.log('Tentando novamente');
+//         this.renderCardapio();
+//     }, 5000);
+// }
 
 // CardapioContainer.propTypes ={
 //     cardapio: PropTypes.instanceOf(CardapioModel).isRequired
@@ -72,7 +105,7 @@ const styles = {
         width: '100%'
     },
     formControl: {
-        marginTop: '1%',
+        marginTop: '2%',
         marginLeft: '30%',
         width: '50%'
     }
