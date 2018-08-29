@@ -4,10 +4,31 @@ import Navbar from './components/Navbar';
 import CardapioContainer from './containers/CardapioContainer';
 
 class App extends Component {
+  state = {
+    dialogOpen: false
+  }
+
+  handleDialog = () => {
+    const state = this.state.dialogOpen;
+    this.setState({
+      dialogOpen: !state
+    })
+  }
+
+  handleClose = () => {
+    this.setState({
+      dialogOpen: false
+    })
+  }
+
   render() {
     return (
       <React.Fragment>
-        <Navbar />
+        <Navbar 
+          open={this.state.dialogOpen} 
+          handleDialog={this.handleDialog}
+          handleClose={this.handleClose}
+          />
         <CardapioContainer />
       </React.Fragment>
     );

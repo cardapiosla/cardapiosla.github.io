@@ -4,6 +4,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import Info  from '@material-ui/icons/Info';
+import AboutDialog from './AboutDialog';
 
 const iconUrl = "http://static.scania.com/resources/logotype/favicon/android-icon-72x72.png";
 
@@ -17,10 +18,16 @@ const Navbar = (props) => {
                 <Typography style={styles.title} variant="title" color="inherit">
                     CARDÁPIO
                     </Typography>
-                <IconButton color="inherit" aria-label="Menu">
+                <IconButton color="inherit" aria-label="Menu" onClick={props.handleDialog}>
                     <Info />
                 </IconButton>
             </Toolbar>
+            <AboutDialog 
+                handleClose={props.handleClose} 
+                open={props.open} 
+                handleDialog={props.handleDialog} 
+
+                />            
         </AppBar>
     )
 }
