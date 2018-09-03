@@ -2,7 +2,9 @@ import React from 'react'
 import { Dialog, DialogTitle, Divider, List, ListItem, ListItemText } from '@material-ui/core';
 
 export default (props) => {
-  return (
+  const anchor = <a href="https://github.com/hugueds/cardapio-sla/"> https://github.com/hugueds/cardapio-sla/</a>;
+
+    return (
     <Dialog open={props.open} onClick={props.handleClose}>
       <DialogTitle id="dialog-title">INFORMAÇÕES</DialogTitle>
       <List style={styles.list}>
@@ -10,12 +12,12 @@ export default (props) => {
           <ListItemText primary="Criado por" secondary="Hugo Peres"/>
         </ListItem>
         <Divider />
-        <ListItem>
-          <ListItemText primary="Contato" secondary="hugo-pdf@hotmail.com" />
+        <ListItem onClick={() => window.location.href = 'mailto: hugo-pdf@hotmail.com?subject=Cardapio SLA' }>
+          <ListItemText  primary="Contato" secondary="hugo-pdf@hotmail.com" />
         </ListItem>
         <Divider />
         <ListItem>
-          <ListItemText primary="Repositorio" secondary="https://github.com/hugueds/cardapio-sla/" />
+          <ListItemText primary="Repositorio" secondary={anchor} />
         </ListItem>
         <Divider />
         <ListItem>
@@ -23,7 +25,7 @@ export default (props) => {
         </ListItem>
         <Divider />
         <ListItem>
-          <ListItemText primary="Ultima atualização" secondary="28/08/2018" />
+          <ListItemText primary="Ultima atualização do software" secondary="28/08/2018" />
         </ListItem>
       </List>
     </Dialog>

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import Moment from 'moment';
+// import Moment from 'moment';
+import Moment from 'react-moment';
+import moment from 'moment/min/moment-with-locales';
+
 import { Select, FormControl, FormHelperText, MenuItem }
     from '@material-ui/core';
 
@@ -7,11 +10,15 @@ import { Select, FormControl, FormHelperText, MenuItem }
 import MenuItems from '../components/MenuItems';
 import Footer from '../components/Footer';
 
+Moment.globalMoment = moment;
+Moment.globalLocale = 'pt-BR';
+
 class CardapioContainer extends Component {
 
     constructor() {
         super();
-        this.state = { cardapio: [], menu: {}, selectedDay: '', loadingData: true, reloadTime: 0 };
+        this.state = { cardapio: [], menu: {}, selectedDay: '', loadingData: true, reloadTime: 0 };        
+                
     }
 
     componentDidMount() {
@@ -32,9 +39,12 @@ class CardapioContainer extends Component {
     }
 
     getToday = () => {
-        const today = Moment(new Date()).format('DD/MM/YY');
+        // const today = Moment(new Date()).format('DD/MM/YY');
+        const today = <Moment format="DD/MM/YY">new Date()</Moment>
         const selected = this.state.cardapio.find(x =>
-            Moment(x.dayReference).format('DD/MM/YY') === today);
+            //Moment(x.dayReference).format('DD/MM/YY') === today
+           <Moment format="DD/MM/YY">x.dayReference</Moment>            
+        );
         this.setState({
             selectedDay: selected.dayReference,
             menu: selected.menu
@@ -51,15 +61,17 @@ class CardapioContainer extends Component {
 
     render() {
         const { cardapio } = this.state;
-        const lastUpdate = cardapio[0] || '0';
+        const lastUpdate =  cardapio[0] || '2018-08-08';
         const dayList = cardapio.map(c => {
             return (
                 <MenuItem key={c._id} value={c.dayReference}>
-                    {Moment(c.dayReference).format('DD/MM/YY')}
+                     {/* {Moment(c.dayReference).format('dddd - DD/MM/YY')} */}
+                     {/* <Moment format="dddd - DD/MM/YY">c.dayReference</Moment> */}
+                     <Moment format="dddd  -  DD/MM/YY">{c.dayReference}</Moment>
                 </MenuItem>);
         });
         return (
-            <div style={styles.root}>              
+            <div style={styles.root}>                
                 <FormControl style={styles.formControl}>
                     <Select
                         value={this.state.selectedDay}
@@ -69,8 +81,9 @@ class CardapioContainer extends Component {
                     <FormHelperText>Escolha um dia da Semana</FormHelperText>
                 </FormControl>
                 <MenuItems menu={this.state.menu} />
-                <Footer lastUpdate={Moment(lastUpdate.uploadedIn).format('DD/MM/YY')} />
-                {/* <Footer lastUpdate={Moment(cardapio[0].uploadedIn).format('DD/MM/YY')}/> */}
+                <Footer lastUpdate={lastUpdate.uploadedIn} />
+                
+                
             </div>
         );
     }
