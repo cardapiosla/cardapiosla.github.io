@@ -39,12 +39,12 @@ class CardapioContainer extends Component {
     }
 
     getToday = () => {
-        // const today = Moment(new Date()).format('DD/MM/YY');
-        const today = <Moment format="DD/MM/YY">new Date()</Moment>
-        const selected = this.state.cardapio.find(x =>
-            //Moment(x.dayReference).format('DD/MM/YY') === today
-           <Moment format="DD/MM/YY">x.dayReference</Moment>            
-        );
+        const today = new Date();
+        today.setHours(0,0,0,0);        
+        const selected = this.state.cardapio.find(x => {            
+             const xDate = new Date(x.dayReference)
+             return xDate.getDate() === today.getDate();
+        });
         this.setState({
             selectedDay: selected.dayReference,
             menu: selected.menu

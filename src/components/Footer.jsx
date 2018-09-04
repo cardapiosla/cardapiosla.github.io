@@ -2,8 +2,7 @@ import React from 'react'
 import Moment from 'react-moment';
 import {AppBar, Toolbar, Typography} from '@material-ui/core';
 
-export default (props) => {
-    const {lastUpdate} = props;
+export default (props) => {    
     return (        
         <AppBar position="static">
             <Toolbar style={styles.toolbar}>
