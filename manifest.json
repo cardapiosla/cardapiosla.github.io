@@ -1,6 +1,7 @@
 {
   "short_name": "Cardapio SLA",
   "name": "Cardapio",
+  "description": "APP for cardapio",
   "icons": [
     {
      "src": "\/\/static.scania.com\/resources\/logotype\/favicon\/android-icon-36x36.png",
