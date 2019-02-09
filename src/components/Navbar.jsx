@@ -6,11 +6,11 @@ import IconButton from '@material-ui/core/IconButton';
 import Info  from '@material-ui/icons/Info';
 import AboutDialog from './AboutDialog';
 
-const iconUrl = "http://static.scania.com/resources/logotype/favicon/android-icon-72x72.png";
+const iconUrl = "https://static.scania.com/resources/logotype/favicon/android-icon-72x72.png";
 
 const Navbar = (props) => {
     return (
-        <AppBar position="static">
+        <AppBar position="static" style={{background: '#041E42'}}>
             <Toolbar>
                 <IconButton color="inherit" aria-label="Menu">
                     <img style={styles.img} src={iconUrl} alt="" />
@@ -46,5 +46,9 @@ const styles = {
         flexGrow: 1
     }
 }
+
+// Scania blue HEX #041E42
+// Scania White HEX #FAFAFA
+// Scania Red HEX #D6001C
 
 export default Navbar;

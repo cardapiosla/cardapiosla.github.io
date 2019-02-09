@@ -15,15 +15,28 @@ class App extends Component {
     })
   }
 
+  handleDownloadDialog = () => {
+    const state = this.state.dialogOpen;
+    this.setState({
+      dialogDownloadOpen: !state
+    })
+  }
+
   handleClose = () => {
     this.setState({
       dialogOpen: false
     })
   }
 
+  handleDownloadClose = () => {
+    this.setState({
+      dialogDownloadOpen: false
+    })
+  }
+
   render() {
     return (
-      <React.Fragment>
+      <React.Fragment>        
         <Navbar 
           open={this.state.dialogOpen} 
           handleDialog={this.handleDialog}

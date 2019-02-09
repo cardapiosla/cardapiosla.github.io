@@ -1,26 +1,13 @@
 import React, { Component } from 'react';
-
-
-const objMap = [
-    { 'header': 'ENTRADA', 'property': 'entrance' },
-    { 'header': 'PRATO 1', 'property': 'plate1' },
-    { 'header': 'PRATO 2', 'property': 'plate2' },
-    { 'header': 'SOBREMESA', 'property': 'dessert1' },
-    { 'header': 'OPÇÃO', 'property': 'option' },
-    { 'header': 'GRILL', 'property': 'grill' },
-    { 'header': 'GOURMET', 'property': 'gourmet' },
-    { 'header': 'SOBREMESA 2', 'property': 'dessert2' },
-    { 'header': 'SOBREMESA 3', 'property': 'dessert3' },
-
-]
+import headers from '../data/MenuHeaders';
 
 export default class Cardapio extends Component {
 
     render() {
         const { menu } = this.props;
-        const listItems = objMap.map((p, i) => (
+        const listItems = headers.map((p, i) => (
             <React.Fragment key={i}>
-                <div style={styles.menuHeader}>  {p.header}</div>
+                <div style={styles.menuHeader}> {p.header}</div>
                 {
                     menu[p.property]
                         ? menu[p.property].map((m, j) => <div style={styles.menuValue} key={j}>- {m}</div>)
@@ -37,22 +24,22 @@ export default class Cardapio extends Component {
 }
 
 const styles = {
-    container: {                
-        'width': '100%',        
+    container: {
+        'width': '100%',
         marginBottom: '6%'
     },
     menuHeader: {
         marginLeft: '5%',
-        fontSize: 11,
+        fontSize: '1.7vh',
         marginTop: '2%',
         marginBottom: '1%',
         fontWeight: 'bold',
-        color: '#873d0c'
+        color: '#D6001C'
     },
     menuValue: {
         marginLeft: '7.5%',
         marginTop: '0.5%',
-        color: '#0c3987',
-        fontSize: '0.77rem'
+        color: '#041E42',
+        fontSize: '2vh'
     }
 }
