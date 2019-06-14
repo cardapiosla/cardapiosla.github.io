@@ -3,8 +3,10 @@ import React, { Component } from 'react';
 import Moment from 'react-moment';
 import moment from 'moment/min/moment-with-locales';
 
-import { Select, FormControl, FormHelperText, MenuItem }
-    from '@material-ui/core';
+import Select from '@material-ui/core/Select';
+import FormControl from '@material-ui/core/FormControl';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import MenuItem from '@material-ui/core/MenuItem';
 
 // import CardapioModel from '../models/CardapioModel';
 import MenuItems from '../components/MenuItems';
