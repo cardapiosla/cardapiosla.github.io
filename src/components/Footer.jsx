@@ -1,16 +1,18 @@
 import React from 'react'
-import Moment from 'react-moment';
-import { AppBar, Toolbar, Typography } from '@material-ui/core';
-import DownloadDialog from './DownloadDialog';
+import moment from 'moment';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 
-export default (props) => {
+// import DownloadDialog from './DownloadDialog';
+
+export default (props) => {   
     
     return (
         <AppBar position="static" style={{background: '#041E42'}}>
             <Toolbar style={styles.toolbar}>
                 <Typography style={styles.content} variant="subheading" color="inherit">
-                    Ultima atualização:
-                    <Moment parse={"YYYY-MM-DD"} format="DD/MM/YYYY"> {props.lastUpdate} </Moment>
+                    Ultima atualização: { moment(props.lastUpdate).format('DD/MM/YYYY - HH:mm:ss') }                    
                 </Typography>
             </Toolbar>
             <Toolbar style={styles.warningBar}>
@@ -18,14 +20,14 @@ export default (props) => {
                     {/* <a onClick={props.handleDownloadDialog}>Instruções para download</a> */}
                 {/* </Typography> */}
                 <Typography style={styles.warning}>
-                    Este não é um Aplicativo oficial
+                    Este não é um Aplicativo oficial, quaisquer divergências nas informações apresentadas não é de responsabilidade do serviço de alimentação
                 </Typography>
             </Toolbar>
-            <DownloadDialog 
+            {/* <DownloadDialog 
                 handleClose={props.handleDownloadClose}
                 open={props.downloadOpen}
                 handleDialog={props.handleDownloadDialog}
-            />
+            /> */}
         </AppBar>
     )
 }
