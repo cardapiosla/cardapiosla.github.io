@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import Moment from 'moment';
 import Moment from 'react-moment';
 import moment from 'moment/min/moment-with-locales';
 
