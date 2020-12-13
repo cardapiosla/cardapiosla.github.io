@@ -9,7 +9,7 @@ export default (props) => {
       <DialogTitle id="dialog-title">INFORMAÇÕES</DialogTitle>
       <List style={styles.list}>
         <ListItem>
-          <ListItemText primary="Criado por" secondary="Hugo Peres"/>
+          <ListItemText primary="Criado por" secondary="Hugo Peres - SSBHPE"/>
         </ListItem>
         <Divider />
         <ListItem onClick={() => window.location.href = 'mailto: hugo-pdf@hotmail.com?subject=Cardapio SLA' }>
@@ -25,7 +25,7 @@ export default (props) => {
         </ListItem>
         <Divider />
         <ListItem>
-          <ListItemText primary="Ultima atualização do software" secondary="14/06/2019" />
+          <ListItemText primary="Ultima atualização do software" secondary="13/13/2020" />
         </ListItem>
       </List>
     </Dialog>
