@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Moment from 'react-moment';
-import moment from 'moment/min/moment-with-locales';
+import moment from 'moment/moment'
+import 'moment/locale/pt-br'
 
 import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
@@ -10,6 +11,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 // import CardapioModel from '../models/CardapioModel';
 import MenuItems from '../components/MenuItems';
 import Footer from '../components/Footer';
+
 
 Moment.globalMoment = moment;
 Moment.globalLocale = 'pt-BR';
@@ -94,7 +96,12 @@ class CardapioContainer extends Component {
 }
 
 function getCardapio(callback) {
-    fetch('https://api.mlab.com/api/1/databases/cardapiosla/collections/cardapio?apiKey=RaMXCGwuJgzDb0wApqf8szcbN36SncAL')
+    const api = 'https://api.mlab.com/api/1/databases/cardapiosla/collections/cardapio';
+    const apiKey = 'apiKey=RaMXCGwuJgzDb0wApqf8szcbN36SncAL';
+    const newApi = 'https://cardapio-sla.herokuapp.com/api/1/databases/cardapiosla/collections/cardapio?apiKey=RaMXCGwuJgzDb0wApqf8szcbN36SncAL'
+    const newApi2 = 'https://cardapio-sla-default-rtdb.firebaseio.com/cardapio.json'
+    // fetch(`${api}?${apiKey}}`)
+    fetch(newApi2)
         .then(res => res.json())
         .then(data => callback(data))
         .catch((err) => console.error(err));

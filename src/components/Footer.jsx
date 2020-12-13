@@ -11,8 +11,10 @@ export default (props) => {
     return (
         <AppBar position="static" style={{background: '#041E42'}}>
             <Toolbar style={styles.toolbar}>
-                <Typography style={styles.content} variant="subheading" color="inherit">
-                    Ultima atualização: { moment(props.lastUpdate).format('DD/MM/YYYY - HH:mm:ss') }                    
+                <Typography style={styles.content} variant="subheading" color="inherit">                    
+                    {                        
+                        props.lastUpdate && <p>Ultima atualização: { moment(props.lastUpdate).format('DD/MM/YYYY - HH:mm:ss') }</p>
+                    }
                 </Typography>
             </Toolbar>
             <Toolbar style={styles.warningBar}>
@@ -20,7 +22,8 @@ export default (props) => {
                     {/* <a onClick={props.handleDownloadDialog}>Instruções para download</a> */}
                 {/* </Typography> */}
                 <Typography style={styles.warning}>
-                    Este não é um Aplicativo oficial, quaisquer divergências nas informações apresentadas não é de responsabilidade do serviço de alimentação
+                    {/* Este não é um Aplicativo oficial, quaisquer divergências nas informações apresentadas não é de responsabilidade do serviço de alimentação */}
+                    O Cardápio está sujeito a alterações
                 </Typography>
             </Toolbar>
             {/* <DownloadDialog 
