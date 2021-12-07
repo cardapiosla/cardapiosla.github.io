@@ -1,8 +1,10 @@
 import CardapioModel from './CardapioModel'
 
 export default class MenuModel extends CardapioModel {
+
     constructor(params) {
         this.entrance = params.entrance;
+        this.vegetarian = params.vegetarian;
         this.plate1 = params.plate1;
         this.dessert = params.dessert;
         this.option = params.option;
@@ -12,4 +14,5 @@ export default class MenuModel extends CardapioModel {
         this.dessert2 = params.dessert2;
         this.dessert3 = params.dessert3;
     }
+
 }

@@ -25,7 +25,7 @@ export default (props) => {
         </ListItem>
         <Divider />
         <ListItem>
-          <ListItemText primary="Ultima atualização do software" secondary="13/13/2020" />
+          <ListItemText primary="Ultima atualização do software" secondary="08/12/2021" />
         </ListItem>
       </List>
     </Dialog>

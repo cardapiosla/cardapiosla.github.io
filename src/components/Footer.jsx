@@ -18,19 +18,10 @@ export default (props) => {
                 </Typography>
             </Toolbar>
             <Toolbar style={styles.warningBar}>
-                {/* <Typography style={styles.warning}> */}
-                    {/* <a onClick={props.handleDownloadDialog}>Instruções para download</a> */}
-                {/* </Typography> */}
                 <Typography style={styles.warning}>
-                    {/* Este não é um Aplicativo oficial, quaisquer divergências nas informações apresentadas não é de responsabilidade do serviço de alimentação */}
                     O Cardápio está sujeito a alterações
                 </Typography>
             </Toolbar>
-            {/* <DownloadDialog 
-                handleClose={props.handleDownloadClose}
-                open={props.downloadOpen}
-                handleDialog={props.handleDownloadDialog}
-            /> */}
         </AppBar>
     )
 }

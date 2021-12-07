@@ -66,7 +66,7 @@ class CardapioContainer extends Component {
 
     render() {
         const { cardapio } = this.state;
-        const lastUpdate = cardapio[0] || '2018-08-08';
+        const lastUpdate = cardapio[0] || '';
         const dayList = cardapio.map(c => {
             return (
                 <MenuItem key={c._id} value={c.dayReference}>                    
@@ -96,12 +96,8 @@ class CardapioContainer extends Component {
 }
 
 function getCardapio(callback) {
-    const api = 'https://api.mlab.com/api/1/databases/cardapiosla/collections/cardapio';
-    const apiKey = 'apiKey=RaMXCGwuJgzDb0wApqf8szcbN36SncAL';
-    const newApi = 'https://cardapio-sla.herokuapp.com/api/1/databases/cardapiosla/collections/cardapio?apiKey=RaMXCGwuJgzDb0wApqf8szcbN36SncAL'
-    const newApi2 = 'https://cardapio-sla-default-rtdb.firebaseio.com/cardapio.json'
-    // fetch(`${api}?${apiKey}}`)
-    fetch(newApi2)
+    const api = 'https://cardapio-sla-default-rtdb.firebaseio.com/cardapio.json'
+    fetch(api)
         .then(res => res.json())
         .then(data => callback(data))
         .catch((err) => console.error(err));
