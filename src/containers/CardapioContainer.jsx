@@ -69,7 +69,7 @@ class CardapioContainer extends Component {
         const lastUpdate = cardapio[0] || '';
         const dayList = cardapio.map(c => {
             return (
-                <MenuItem key={c._id} value={c.dayReference}>                    
+                <MenuItem key={c._id} value={c.dayReference}>
                     <Moment format="dddd  -  DD/MM/YY">{c.dayReference}</Moment>
                 </MenuItem>);
         });
@@ -78,7 +78,7 @@ class CardapioContainer extends Component {
 
                 <FormControl style={styles.formControl}>
                     <Select
-                        style={{background: '#fbffd3', fontSize: '2.75vh'}}
+                        style={{ background: '#fbffd3', fontSize: '2.75vh' }}
                         value={this.state.selectedDay}
                         onChange={this.handleChange} >
                         {dayList}
@@ -89,7 +89,7 @@ class CardapioContainer extends Component {
                 <MenuItems menu={this.state.menu} />
 
                 <Footer lastUpdate={lastUpdate.uploadedIn} />
-                
+
             </div>
         );
     }
@@ -107,7 +107,7 @@ const styles = {
     root: {
         width: '100%'
     },
-    formControl: {        
+    formControl: {
         marginTop: '1.75%',
         marginLeft: '20%',
         width: '60%'
