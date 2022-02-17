@@ -39,10 +39,10 @@
      "density": "4.0"
     }
    ],
-  "start_url": "./index.html",
+  "start_url": "https://cardapiosla.github.io",
   "display": "fullscreen",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#121741",
+  "background_color": "#FAFAFA"
 }
 
 
