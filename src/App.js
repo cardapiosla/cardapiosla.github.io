@@ -36,13 +36,20 @@ class App extends Component {
 
   render() {
     return (
-      <React.Fragment>        
-        <Navbar 
-          open={this.state.dialogOpen} 
+      <React.Fragment>
+        <Navbar
+          open={this.state.dialogOpen}
           handleDialog={this.handleDialog}
           handleClose={this.handleClose}
-          />
-        <CardapioContainer />
+        />
+        <div style={{ width: '50%', margin: '0 auto', textAlign: 'center', fontSize: '24px' }}>
+
+          <p>
+            Obrigado pela confiança no trabalho por todos estes anos.
+          </p>
+          <p>Em breve o cardápio Mobile estará disponível oficialmente para acesso a todos colaboradores
+          </p>
+        </div>
       </React.Fragment>
     );
   }

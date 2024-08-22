@@ -116,20 +116,6 @@ const styles = {
 
 
 
-// function handleError() {        
-//     const interval = setInterval(() => {
-//         this.state.reloadTime--;
-//     }, 1000)
-//     setTimeout(() => {
-//         clearInterval(interval);
-//         console.log('Tentando novamente');
-//         this.renderCardapio();
-//     }, 5000);
-// }
-
-// CardapioContainer.propTypes ={
-//     cardapio: PropTypes.instanceOf(CardapioModel).isRequired
-// }
 
 
 export default CardapioContainer;
