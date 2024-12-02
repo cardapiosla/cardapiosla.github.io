@@ -34,6 +34,7 @@ class App extends Component {
     })
   }
 
+
   render() {
     return (
       <React.Fragment>
@@ -45,9 +46,10 @@ class App extends Component {
         <div style={{ width: '50%', margin: '0 auto', textAlign: 'center', fontSize: '24px' }}>
 
           <p>
-            Obrigado pela confiança no trabalho por todos estes anos.
+            O novo endereço do cardápio é: <a href="https://cardapio.scania.com.br/">https://cardapio.scania.com.br/</a>
           </p>
-          <p>Em breve o cardápio Mobile estará disponível oficialmente para acesso a todos colaboradores
+          <p>
+            Você será redirecionado para o novo endereço em instantes.
           </p>
         </div>
       </React.Fragment>
